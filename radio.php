@@ -15,7 +15,7 @@ switch ($_GET['cmd'])
         $response['list'] = $stationList;
         break;
     case 'play':
-        $_SESSION['play'] = urldecode($_GET['station']);
+        $_SESSION['play'] = urldecode($_GET['param']);
         $response['station'] = $stationList[$_SESSION['play']];
         break;
     case 'stop':
@@ -32,9 +32,11 @@ switch ($_GET['cmd'])
         {
             $response['status'] = 'stop';
         }
+        break;
     case 'volume':
-        isset($_GET['level']) && $_SESSION['volume'] = $_GET['level'];
+        isset($_GET['param']) && $_SESSION['volume'] = $_GET['param'];
         $response['level'] = $_SESSION['volume'];
+        break;
     default:
 }
 header('Content-type:application/json');

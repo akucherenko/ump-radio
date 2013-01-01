@@ -1,7 +1,8 @@
 $(function() {
 
     //Store frequently elements in variables
-    var slider  = $('.slider');
+    var slider   = $('.slider'),
+        radioUrl = '/radio.php';
 
     //Call the Slider
     slider.slider({
@@ -30,8 +31,7 @@ $(function() {
     var Volume = Backbone.Model.extend({
         change: function(level) {
             $.ajax({
-                url: '/radio.php',
-                data: {cmd: 'volume', level: level},
+                url: radioUrl + '/volume/' + level,
                 context: this,
                 dataType: 'json'
             });
@@ -41,8 +41,7 @@ $(function() {
     var Status = Backbone.Model.extend({
         update: function() {
             $.ajax({
-                url: '/radio.php',
-                data: {cmd: 'status'},
+                url: radioUrl + '/status',
                 context: this,
                 dataType: 'json',
                 success: function(r){
@@ -75,7 +74,7 @@ $(function() {
         render: function(status) {
             if (this.stations == null) {
                 $.ajax({
-                    url: '/radio.php',
+                    url: radioUrl + '/list',
                     context: this,
                     async: false,
                     dataType: 'json',
@@ -122,8 +121,7 @@ $(function() {
 
         play: function (station) {
             $.ajax({
-                url: '/radio.php',
-                data: {cmd: 'play', station: station},
+                url: radioUrl + '/play/' + station,
                 context: this,
                 dataType: 'json',
                 success: function(r){
@@ -138,8 +136,7 @@ $(function() {
 
         stop: function () {
             $.ajax({
-                url: '/radio.php',
-                data: {cmd: 'stop'},
+                url: radioUrl + '/stop',
                 context: this,
                 dataType: 'json',
                 success: function(r){
