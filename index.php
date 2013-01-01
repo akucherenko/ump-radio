@@ -35,12 +35,6 @@
             <ul id="StationList" class="media-list">
             </ul>
 
-            <hr>
-
-            <footer>
-                <p>&copy; ump radio 2013</p>
-            </footer>
-
         </div> <!-- /container -->
 
         <script type="text/template" id="StationTpl">
