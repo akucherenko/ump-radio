@@ -7,7 +7,7 @@ section {
 	margin: 10px 0px;
 	position: relative;
 }
-#slider{
+.slider{
 	border-width: 1px;
 	border-style: solid;
 	border-color: #333 #333 #777 #333;
